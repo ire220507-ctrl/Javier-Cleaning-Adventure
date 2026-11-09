@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6927436169007630387}
   - component: {fileID: 8514983741056896846}
   - component: {fileID: 6387575211561949176}
+  - component: {fileID: 5134714114672829988}
+  - component: {fileID: 7423378709567422801}
   m_Layer: 0
   m_Name: enemigo_basico
   m_TagString: Untagged
@@ -158,3 +160,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.025000006}
   m_Size: {x: 0.19, y: 0.19}
   m_Direction: 0
+--- !u!114 &5134714114672829988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953839688309018833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60a661defbf0c14ab7a00768a7e9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!95 &7423378709567422801
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953839688309018833}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9363cc148d54c04fa845d0f026e0177, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
