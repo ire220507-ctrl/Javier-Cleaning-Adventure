@@ -7740,7 +7740,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 100, y: 6, z: 0}
+    º1- first: {x: 6, y: -6, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8355,8 +8355,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1750922866}
-  - {fileID: 315521449}
-  - {fileID: 1168434701}
-  - {fileID: 798809676}
-  - {fileID: 234061065}
+  - {fileID: 1945337051}
   - {fileID: 1998342660}
