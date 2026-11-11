@@ -29,43 +29,52 @@ public class MovimientoProtagonista : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 input = InputSystem.actions["Move"].ReadValue<Vector2>();
+
+        movement();
+        if (isGrounded)
+        {
+            jump();
+        }
 
         Vector2 inputDash = InputSystem.actions["Move"].ReadValue<Vector2>();
 
 
-        if (input.x >= 0)
-        {
-            sr.flipX = false;
+    }
 
-        }
-        else
+    private void movement()
+    {
+        Vector2 input = InputSystem.actions["Move"].ReadValue<Vector2>();
+        Vector3 direccion = new Vector3(input.x, 0, 0);
+        transform.position += direccion * velocidad * Time.deltaTime;
+
+       if (direccion.x < 0)
         {
             sr.flipX = true;
+        } else if(direccion.x > 0)
+        {
+            sr.flipX = false;
         }
-        Vector3 direccion = new Vector3(input.x, 0, input.y);
-        transform.position += direccion * velocidad * Time.deltaTime;
 
         animator.SetFloat("Speed", Mathf.Abs(input.x));
 
-
-        if (InputSystem.actions["Jump"].WasPressedThisFrame() & isGrounded)
-        {
-            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode2D.Impulse);
-            animator.SetTrigger("Jump");
-
-        }
-
         if (InputSystem.actions["Dash"].WasPressedThisFrame())
         {
-        transform.position += direccion * velocidad * Time.deltaTime * 30 ;
+            transform.position += direccion * velocidad * Time.deltaTime * 30;
             // animator.SetTrigger("Jump");
 
         }
 
+
     }
 
-
+    private void jump()
+    {
+        if (InputSystem.actions["Jump"].WasPressedThisFrame() & isGrounded)
+        {
+            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode2D.Impulse);
+            animator.SetTrigger("Jump");
+        }
+    }
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -73,6 +82,7 @@ public class MovimientoProtagonista : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            animator.SetTrigger("Ground");
         }
 
 
