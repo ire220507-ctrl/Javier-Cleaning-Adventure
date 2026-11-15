@@ -17,7 +17,10 @@ public class Script_enemigo_jefe : MonoBehaviour
     private float limiteDer;
     private float destinoX;
 
+    public float fuerzaSalto = 5f;
+
     private int golpes = 0;
+    public bool isGrounded = true;
 
     void Start()
     {
@@ -47,15 +50,24 @@ public class Script_enemigo_jefe : MonoBehaviour
         {
             destinoX = (destinoX == limiteDer) ? limiteIzq : limiteDer;
             sr.flipX = destinoX < transform.position.x; // gira el sprite
+
         }
 
-        //enemyRigidbody.velocity = Vector2.up * jumpForce;
-
+        if (isGrounded)
+        {
+            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode2D.Impulse);
+        }
 
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+
+
         if (!col.gameObject.CompareTag(tagJugador)) return;
 
         foreach (ContactPoint2D punto in col.contacts)
@@ -68,7 +80,12 @@ public class Script_enemigo_jefe : MonoBehaviour
             }
         }
 
+
+
+
+
         // Aquí iría el daño al jugador si lo toca de lado
+
     }
 
     void Morir(Rigidbody2D rbJugador)
@@ -77,7 +94,7 @@ public class Script_enemigo_jefe : MonoBehaviour
         {
             rbJugador.linearVelocity = new Vector2(rbJugador.linearVelocity.x, reboteJugador);
 
-            animator.SetTrigger("muerto");
+            animator.SetTrigger("Muerto");
             Destroy(gameObject);
         }
         else
@@ -85,4 +102,13 @@ public class Script_enemigo_jefe : MonoBehaviour
             golpes++;
         }
     }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
+
 }

@@ -64,7 +64,7 @@ public class MovimientoProtagonista : MonoBehaviour
         animator.SetBool("Grounded", isGrounded);
         animator.SetFloat("VelocityY", rb.linearVelocityY);
 
-        if (InputSystem.actions["Dash"].WasPressedThisFrame())
+        if (InputSystem.actions["Dash"].WasPressedThisFrame() )
         {
             transform.position += direccion * velocidad * Time.deltaTime * 30;
             // animator.SetTrigger("Jump");
