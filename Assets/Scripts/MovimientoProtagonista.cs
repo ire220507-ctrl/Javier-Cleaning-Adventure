@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Data.Common;
 
 public class MovimientoProtagonista : MonoBehaviour
 {
@@ -60,8 +61,10 @@ public class MovimientoProtagonista : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(input.x));
+        animator.SetBool("Grounded", isGrounded);
+        animator.SetFloat("VelocityY", rb.linearVelocityY);
 
-        if (InputSystem.actions["Dash"].WasPressedThisFrame())
+        if (InputSystem.actions["Dash"].WasPressedThisFrame() )
         {
             transform.position += direccion * velocidad * Time.deltaTime * 30;
             // animator.SetTrigger("Jump");
@@ -76,7 +79,6 @@ public class MovimientoProtagonista : MonoBehaviour
         if (InputSystem.actions["Jump"].WasPressedThisFrame() & isGrounded)
         {
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode2D.Impulse);
-            animator.SetTrigger("Jump");
         }
     }
 
@@ -86,7 +88,7 @@ public class MovimientoProtagonista : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
-            animator.SetTrigger("Ground");
+            //animator.SetTrigger("Ground");
         }
 
 
@@ -99,20 +101,20 @@ public class MovimientoProtagonista : MonoBehaviour
         }
     }
 
-  private void OnTriggerEnter2D(Collider2D collision)
-{
-    Debug.Log("Trigger con: " + collision.gameObject.name);
-
-    Recolectable r = collision.GetComponent<Recolectable>();
-
-    Debug.Log("Recolectable encontrado: " + r);
-
-    if (r != null)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Voy a destruir el objeto");
+        Debug.Log("Trigger con: " + collision.gameObject.name);
 
-        puntaje.SumarPuntos(r.puntos);
-        Destroy(collision.gameObject);
+        Recolectable r = collision.GetComponent<Recolectable>();
+
+        Debug.Log("Recolectable encontrado: " + r);
+
+        if (r != null)
+        {
+            Debug.Log("Voy a destruir el objeto");
+
+            puntaje.SumarPuntos(r.puntos);
+            Destroy(collision.gameObject);
+        }
     }
-}
 }
