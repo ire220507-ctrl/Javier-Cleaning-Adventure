@@ -6,12 +6,12 @@ public class Puntaje : MonoBehaviour
     private int puntos;
     private TextMeshProUGUI textMesh;
 
-    private void Start()
-    {
-        textMesh = GetComponent<TextMeshProUGUI>();
-        textMesh.text = puntos.ToString();
-    }
+   private void Start()
+{
+    textMesh = GetComponent<TextMeshProUGUI>();
 
+    Debug.Log(textMesh);
+}
 public void SumarPuntos(int puntosEntrada)
 {
     puntos += puntosEntrada;
