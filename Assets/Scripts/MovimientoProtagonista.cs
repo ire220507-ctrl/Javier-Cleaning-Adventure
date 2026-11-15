@@ -61,7 +61,7 @@ public class MovimientoProtagonista : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(input.x));
 
-        if (InputSystem.actions["Dash"].WasPressedThisFrame())
+        if (InputSystem.actions["Dash"].WasPressedThisFrame() )
         {
             transform.position += direccion * velocidad * Time.deltaTime * 30;
             // animator.SetTrigger("Jump");
