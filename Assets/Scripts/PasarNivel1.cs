@@ -6,7 +6,8 @@ public class PasarNivel1 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.transform.position = new Vector3(-16.34546f, -70.7543f, 0f);
+            collision.transform.position = new Vector3(0f, -32.97f, 0f);
+            Debug.Log(collision.transform.position);
         }
     }
 }
