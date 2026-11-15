@@ -1,10 +1,12 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class MovimientoProtagonista : MonoBehaviour
 {
 
+    [SerializeField] private Puntaje puntaje;
 
     public float velocidad = 5f;
     public float fuerzaSalto = 5f;
@@ -18,14 +20,16 @@ public class MovimientoProtagonista : MonoBehaviour
     public float dashSpeed;
     public float airFrictionForce;
 
+    public int objetosRecogidos;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -94,4 +98,21 @@ public class MovimientoProtagonista : MonoBehaviour
             isGrounded = false;
         }
     }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+{
+    Debug.Log("Trigger con: " + collision.gameObject.name);
+
+    Recolectable r = collision.GetComponent<Recolectable>();
+
+    Debug.Log("Recolectable encontrado: " + r);
+
+    if (r != null)
+    {
+        Debug.Log("Voy a destruir el objeto");
+
+        puntaje.SumarPuntos(r.puntos);
+        Destroy(collision.gameObject);
+    }
+}
 }
