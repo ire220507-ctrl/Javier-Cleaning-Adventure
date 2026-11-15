@@ -3124,6 +3124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1842096842}
+  - {fileID: 1945750881}
   m_Father: {fileID: 1998342660}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1597103568
@@ -27993,12 +27994,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945750876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2, y: -0.3, z: 0}
-  m_LocalScale: {x: 9.853789, y: 9.6556, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 168.5, y: -69.2, z: 0}
+  m_LocalScale: {x: 14.412152, y: 14.12228, z: 0.7313}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1597103567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1945750882
 MonoBehaviour:
@@ -28015,9 +28016,10 @@ MonoBehaviour:
   distancia: 3
   valocidad: 1
   tagJugador: Player
-  reboteJugador: 8
+  reboteJugador: 3
   margenPisada: 0.5
-  fuerzaSalto: 5
+  fuerzaSalto: 1
+  isGrounded: 1
 --- !u!1 &1998342658
 GameObject:
   m_ObjectHideFlags: 0
@@ -28669,4 +28671,3 @@ SceneRoots:
   - {fileID: 8756210094638286622}
   - {fileID: 891813889873298809}
   - {fileID: 658263460}
-  - {fileID: 1945750881}
