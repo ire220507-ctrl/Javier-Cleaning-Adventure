@@ -158,8 +158,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.21, y: 0.31}
+  m_Offset: {x: 0, y: 0.0069768033}
+  m_Size: {x: 0.20999998, y: 0.29604638}
   m_Direction: 0
 --- !u!95 &6277303437122174716
 Animator:
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986cc9bfb0aa2f840abab1d8ec4a192a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoProtagonista
+  puntaje: {fileID: 0}
   velocidad: 5
   fuerzaSalto: 5
   isGrounded: 1
@@ -202,6 +203,7 @@ MonoBehaviour:
   dashTime: 0
   dashSpeed: 0
   airFrictionForce: 0
+  objetosRecogidos: 0
 --- !u!1 &7188733744429393754
 GameObject:
   m_ObjectHideFlags: 0
