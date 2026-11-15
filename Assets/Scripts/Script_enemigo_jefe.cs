@@ -49,7 +49,7 @@ public class Script_enemigo_jefe : MonoBehaviour
             sr.flipX = destinoX < transform.position.x; // gira el sprite
         }
 
-        enemyRigidbody.velocity = Vector2.up * jumpForce;
+       // enemyRigidbody.velocity = Vector2.up * jumpForce;
 
 
     }

@@ -14,12 +14,12 @@ public class MovimientoProtagonista : MonoBehaviour
     private SpriteRenderer sr;
     private Animator animator;
     public bool isGrounded = true;
-    bool dashing = true;
-    public float startDashTime;
-    public float dashTime;
-    public float dashSpeed;
-    public float airFrictionForce;
+    // bool dashing = true;
 
+ public float startDashTime;
+ public float dashTime;
+ public float dashSpeed;
+ public float airFrictionForce;
     public int objetosRecogidos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
